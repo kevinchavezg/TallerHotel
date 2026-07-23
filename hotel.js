@@ -63,4 +63,11 @@ async function registrar() {
     console.log("Habitación registrada correctamente");
 }
 
+function listar() {
+    console.log("--- Habitaciones ---");
+    habitaciones.forEach((habitacion) => {
+      console.log(`Número: ${habitacion.numero} | Tipo: ${habitacion.tipo} | Precio por Noche: ${habitacion.precioNoche} | Estado: ${habitacion.estado} | Huésped: ${habitacion.huesped}`);
+    });
+}
+
 menu();
