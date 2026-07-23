@@ -6,7 +6,7 @@ function timpoEspera(ms) {
 
 async function menu() {
     let opcion = prompt(
-      "*** Administración Hotel ***\n" +
+      "--- HOTEL ---\n" +
         "1. Registrar nueva habitación\n" +
         "2. Listar habitaciones\n" +
         "3. Buscar habitación por numero\n" +
@@ -38,4 +38,27 @@ async function menu() {
           console.log("Opción no válida!");
       }
       menu();
+}
+
+async function registrar() {
+    let numero = parseInt(prompt("Ingrese número de la habitación:"));
+    let tipo = prompt("Ingrese tipo de habitación: (Sencilla, Doble o Suite)");
+    let precioNoche = parseFloat(prompt("Ingrese precio por noche:"));
+    let estado = prompt("Ingrese estado de habitación: (Libre, Ocupada o Limpieza):");
+    let huesped = prompt("Ingrese nombre de huésped: (Vacio si esta libre)");
+  
+    let habitacion = {
+      numero,
+      tipo,
+      precioNoche,
+      estado,
+      huesped,
+    };
+  
+    console.log("Validando información de la habitación...");
+  
+    await tiempoDeEspera(2000);
+  
+    habitaciones.push(habitacion);
+    console.log("Habitación registrada correctamente");
 }
