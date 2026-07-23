@@ -70,4 +70,20 @@ function listar() {
     });
 }
 
+async function buscar() {
+    let numero = prompt("Ingrese número de habitación a buscar:");
+    console.log("Consultando base de datos del hotel...");
+  
+    await tiempoDeEspera(2000);
+  
+    let habitacionBuscada = habitaciones.find((habitacion) => {
+      return habitacion.numero === numero;
+    });
+    if (habitacionBuscada) {
+      console.log(`Numero: ${habitacionBuscada.numero} | Tipo: ${habitacionBuscada.tipo} | Precio por Noche: ${habitacionBuscada.precioNoche} | Estado: ${habitacionBuscada.estado} | Huésped: ${habitacionBuscada.huesped}`);
+    } else {
+      console.log("Habitación no encontrada...");
+    }
+  }
+
 menu();
