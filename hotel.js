@@ -71,10 +71,10 @@ function listar() {
 }
 
 async function buscar() {
-    let numero = prompt("Ingrese número de habitación a buscar:");
+    let numero = parseInt(prompt("Ingrese número de habitación a buscar:"));
     console.log("Consultando base de datos del hotel...");
   
-    await tiempoDeEspera(2000);
+    await tiempoEspera(2000);
   
     let habitacionBuscada = habitaciones.find((habitacion) => {
       return habitacion.numero === numero;
