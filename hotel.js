@@ -84,6 +84,24 @@ async function buscar() {
     } else {
       console.log("Habitación no encontrada...");
     }
+}
+
+async function cambiar() {
+    let numero = parseInt(prompt("Ingrese número de habitación a modificar:"));
+    console.log("Esperando al personal del hotel...");
+  
+    await tiempoEspera(3000);
+  
+    let habitacionBuscada = habitaciones.find((habitacion) => {
+      return habitacion.numero === numero;
+    });
+    if (habitacionBuscada) {
+      let nuevoEstado = prompt("Ingrese el nuevo estado de la habitación:");
+      habitacionBuscada.estado = nuevoEstado;
+      console.log("Estado actualizado - Habitación:" + habitacionBuscada.numero + "Estado:");
+    } else {
+      console.log("Habitación no encontrada...");
+    }
   }
 
 menu();
