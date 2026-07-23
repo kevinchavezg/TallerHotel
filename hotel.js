@@ -1,12 +1,12 @@
 let habitaciones = [];
 
-function timpoEspera(ms) {
+function tiempoEspera(ms) {
     return new Promise ((resolve) => setTimeout(resolve,ms));
 }
 
 async function menu() {
     let opcion = prompt(
-      "--- HOTEL ---\n" +
+      "--- HOTEL ---\n\n" +
         "1. Registrar nueva habitación\n" +
         "2. Listar habitaciones\n" +
         "3. Buscar habitación por numero\n" +
@@ -57,8 +57,10 @@ async function registrar() {
   
     console.log("Validando información de la habitación...");
   
-    await tiempoDeEspera(2000);
+    await tiempoEspera(2000);
   
     habitaciones.push(habitacion);
     console.log("Habitación registrada correctamente");
 }
+
+menu();
