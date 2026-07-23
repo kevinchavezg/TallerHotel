@@ -14,3 +14,28 @@ async function menu() {
         "5. Eliminar habitación\n" +
         "6. Salir",
     );
+
+    switch (opcion) {
+        case "1":
+          await registrar();
+          break;
+        case "2":
+          listar();
+          break;
+        case "3":
+          await buscar();
+          break;
+        case "4":
+          await cambiar();
+          break;
+        case "5":
+          eliminar();
+          break;
+        case "6":
+          console.log("Cerrando administrador de Hotel...");
+          return;
+        default:
+          console.log("Opción no válida!");
+      }
+      menu();
+}
