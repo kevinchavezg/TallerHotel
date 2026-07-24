@@ -98,7 +98,14 @@ async function cambiar() {
     if (habitacionBuscada) {
       let nuevoEstado = prompt("Ingrese el nuevo estado de la habitación:");
       habitacionBuscada.estado = nuevoEstado;
-      console.log("Estado actualizado - Habitación:" + habitacionBuscada.numero + "Estado:");
+      if (nuevoEstado == "Ocupada") {
+        let nuevoHuesped = prompt("Ingrese nombre de Huésped: ");
+        habitacionBuscada.huesped = nuevoHuesped
+      } else {
+        habitacionBuscada.huesped = ""
+      }
+
+      console.log("Estado actualizado - Habitación: " + habitacionBuscada.numero);
     } else {
       console.log("Habitación no encontrada...");
     }
