@@ -80,7 +80,7 @@ async function buscar() {
       return habitacion.numero === numero;
     });
     if (habitacionBuscada) {
-      console.log(`Numero: ${habitacionBuscada.numero} | Tipo: ${habitacionBuscada.tipo} | Precio por Noche: ${habitacionBuscada.precioNoche} | Estado: ${habitacionBuscada.estado} | Huésped: ${habitacionBuscada.huesped}`);
+      console.log(`Número: ${habitacionBuscada.numero} | Tipo: ${habitacionBuscada.tipo} | Precio por Noche: ${habitacionBuscada.precioNoche} | Estado: ${habitacionBuscada.estado} | Huésped: ${habitacionBuscada.huesped}`);
     } else {
       console.log("Habitación no encontrada...");
     }
@@ -106,6 +106,21 @@ async function cambiar() {
       }
 
       console.log("Estado actualizado - Habitación: " + habitacionBuscada.numero);
+    } else {
+      console.log("Habitación no encontrada...");
+    }
+  }
+
+  function eliminar() {
+    let numero = prompt("Ingrese número de habitación a eliminar:");
+  
+    let indice = habitaciones.findIndex((habitacion) => {
+      return habitacion.numero === numero;
+    });
+  
+    if (indice !== -1) {
+      habitaciones.splice(indice, 1);
+      console.log("Habitación eliminada: " + numero);
     } else {
       console.log("Habitación no encontrada...");
     }
