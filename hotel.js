@@ -112,7 +112,7 @@ async function cambiar() {
   }
 
   function eliminar() {
-    let numero = prompt("Ingrese número de habitación a eliminar:");
+    let numero = parseInt(prompt("Ingrese número de habitación a eliminar:"));
   
     let indice = habitaciones.findIndex((habitacion) => {
       return habitacion.numero === numero;
