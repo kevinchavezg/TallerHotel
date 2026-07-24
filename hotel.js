@@ -17,30 +17,30 @@ async function menu() {
 
     switch (opcion) {
         case "1":
-          await registrar();
+          await registrar(menu);
           break;
         case "2":
-          listar();
+          listar(menu);
           break;
         case "3":
-          await buscar();
+          await buscar(menu);
           break;
         case "4":
-          await cambiar();
+          await cambiar(menu);
           break;
         case "5":
-          eliminar();
+          eliminar(menu);
           break;
         case "6":
           console.log("Cerrando administrador de Hotel...");
           return;
         default:
           console.log("Opción no válida!");
+          menu();
       }
-      menu();
 }
 
-async function registrar() {
+async function registrar(callback) {
     let numero = parseInt(prompt("Ingrese número de la habitación:"));
     let tipo = prompt("Ingrese tipo de habitación: (Sencilla, Doble o Suite)");
     let precioNoche = parseFloat(prompt("Ingrese precio por noche:"));
@@ -61,16 +61,18 @@ async function registrar() {
   
     habitaciones.push(habitacion);
     console.log("Habitación registrada correctamente");
+    callback();
 }
 
-function listar() {
+function listar(callback) {
     console.log("--- Habitaciones ---");
     habitaciones.forEach((habitacion) => {
       console.log(`Número: ${habitacion.numero} | Tipo: ${habitacion.tipo} | Precio por Noche: ${habitacion.precioNoche} | Estado: ${habitacion.estado} | Huésped: ${habitacion.huesped}`);
     });
+    callback();
 }
 
-async function buscar() {
+async function buscar(callback) {
     let numero = parseInt(prompt("Ingrese número de habitación a buscar:"));
     console.log("Consultando base de datos del hotel...");
   
@@ -84,9 +86,10 @@ async function buscar() {
     } else {
       console.log("Habitación no encontrada...");
     }
+    callback();
 }
 
-async function cambiar() {
+async function cambiar(callback) {
     let numero = parseInt(prompt("Ingrese número de habitación a modificar:"));
     console.log("Esperando al personal del hotel...");
   
@@ -109,9 +112,10 @@ async function cambiar() {
     } else {
       console.log("Habitación no encontrada...");
     }
+    callback();
   }
 
-  function eliminar() {
+  function eliminar(callback) {
     let numero = parseInt(prompt("Ingrese número de habitación a eliminar:"));
   
     let indice = habitaciones.findIndex((habitacion) => {
@@ -124,6 +128,7 @@ async function cambiar() {
     } else {
       console.log("Habitación no encontrada...");
     }
+    callback();
   }
 
 menu();
